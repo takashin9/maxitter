@@ -8,6 +8,7 @@ const Tweets = {
         );
     `,
     create: `INSERT INTO tweets (content, user_id, created_at) VALUES (?, ?, ?);`,
+    findAll: `SELECT * FROM tweets;`,
 };
 
 const Users = {
@@ -20,6 +21,7 @@ const Users = {
         );
     `,
     create: `INSERT INTO users (name, email, created_at) VALUES (?, ?, ?);`,
+    findAll: `SELECT * FROM users;`,
 };
 
 module.exports = {
