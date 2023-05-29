@@ -7,6 +7,7 @@ const Tweets = {
             created_at DATETIME NOT NULL
         );
     `,
+    create: `INSERT INTO tweets (content, user_id, created_at) VALUES (?, ?, ?);`,
 };
 
 const Users = {
