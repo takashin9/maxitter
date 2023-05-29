@@ -22,6 +22,14 @@ db.serialize(() => {
     db.all(queries.Users.findAll, (err, rows) => {
         console.log(rows);
     });
+
+    db.get(queries.Users.findByTweetId, 1, (err, row) => {
+        console.log(row);
+    });
+
+    db.get(queries.Users.findByTweetId, 4, (err, row) => {
+        console.log(row);
+    });
 });
 
 db.close();

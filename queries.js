@@ -22,6 +22,7 @@ const Users = {
     `,
     create: `INSERT INTO users (name, email, created_at) VALUES (?, ?, ?);`,
     findAll: `SELECT * FROM users;`,
+    findByTweetId: `SELECT * FROM users WHERE id = (SELECT user_id FROM tweets WHERE id = ?);`,
 };
 
 module.exports = {
