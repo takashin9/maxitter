@@ -18,6 +18,7 @@ const Users = {
             created_at DATETIME NOT NULL
         );
     `,
+    create: `INSERT INTO users (name, email, created_at) VALUES (?, ?, ?);`,
 };
 
 module.exports = {
