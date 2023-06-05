@@ -41,8 +41,13 @@ app.get("/", async (c) => {
         });
     });
 
+    const tweetList = tweets.map((tweet) => `<div class="tweet">${tweet.content}</div>`).join("\n");
+
     const response = HTML(`
         <h1 class="title">ツイート一覧</h1>
+        <div class="tweet-list">
+            ${tweetList}
+        </div>
     `);
 
     return c.html(response);
