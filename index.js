@@ -1,6 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const queries = require("./queries");
 const { serve } = require("@hono/node-server");
+const { serveStatic } = require("@hono/node-server/serve-static");
 const { Hono } = require("hono");
 
 const db = new sqlite3.Database("database.db");
@@ -25,6 +26,7 @@ const HTML = (body) => `
     <meta charset="UTF-8">
     <title>これはただの文字列です</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     ${body}
@@ -52,6 +54,8 @@ app.get("/", async (c) => {
 
     return c.html(response);
 });
+
+app.use("/static/*", serveStatic({ root: "./" }));
 
 serve(app);
 
